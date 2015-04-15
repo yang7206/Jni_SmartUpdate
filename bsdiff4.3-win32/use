@@ -1,0 +1,3 @@
+使用方法
+bsdiff.exe oldfile newfile patchfile
+bspatch.exe oldfile newfile patchfile

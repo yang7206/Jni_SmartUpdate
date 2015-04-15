@@ -68,10 +68,10 @@ patchApk方法说明
 bsspatch.c中有一个Utils.java中的native方法patchApk方法实现
 java类生成.h文件的方法如下:
 
-javac Utils.java  //使用该命令需要在Utils.java所在的文件夹之下，
+F:\JniLib\src\com\yxy\lib\smartupdate>javac Utils.java  //使用该命令需要在Utils.java所在的包之下，
 //命令行显示为F:\JniLib\src\com\yxy\lib\smartupdate>
 
-javah com.yxy.lib.smartupdate.Utils //生成com_yxy_lib_smartupdate_Utils.h文件，需要在src文件目录（命令行显示为F:\JniLib\src>）下调用该命令
+F:\JniLib\src>javah com.yxy.lib.smartupdate.Utils //生成com_yxy_lib_smartupdate_Utils.h文件，需要在src文件目录（命令行显示为F:\JniLib\src>）下调用该命令
 
 com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中#include "com_yxy_lib_smartupdate_Utils.h" 实现，
 也可以直接复制方法到bspatch.c中实现

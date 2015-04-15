@@ -14,7 +14,7 @@ http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html
 
 Android.mk 文件说明:
 ===========================================
-	
+>	
 # Copyright (C) 2009 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,7 +30,7 @@ Android.mk 文件说明:
 # limitations under the License.
 #
 LOCAL_PATH := $(call my-dir)
-
+>
 #构建一个静态库，bspatch中需要调用libbz.a和bzlib.h中的函数或参数，需要先构建
 #building static library
 include $(CLEAR_VARS)
@@ -39,7 +39,7 @@ LOCAL_SRC_FILES:= libbz.a
 LOCAL_EXPORT_C_INCLUDES := bzlib.h
 include $(PREBUILT_STATIC_LIBRARY)
 include $(CLEAR_VARS)
-
+>
 #构建so文件
 # build so lib
 #so文件名，构建完成会自动将libbspatch.so放在libs\armeabi文件夹之下
@@ -77,6 +77,7 @@ com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中#include "com_yx
 也可以直接复制方法到bspatch.c中实现
 
 如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
+
 JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
         jobject obj, jstring old, jstring new , jstring patch){
   构建4个长度的数组

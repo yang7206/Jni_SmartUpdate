@@ -13,6 +13,7 @@ http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html
 
 
 Android.mk 文件说明:
+===========================================
 	
 # Copyright (C) 2009 The Android Open Source Project
 #
@@ -62,6 +63,8 @@ LOCAL_CFLAGS +=
  #build so file
 include $(BUILD_SHARED_LIBRARY)  
 
+patchApk方法说明
+===========================================
 bsspatch.c中有一个Utils.java中的native方法patchApk方法实现
 java类生成.h文件的方法如下:
 

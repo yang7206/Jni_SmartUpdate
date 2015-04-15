@@ -30,7 +30,7 @@ Android.mk 文件说明:
 # limitations under the License.
 #
 LOCAL_PATH := $(call my-dir)
->
+#
 #构建一个静态库，bspatch中需要调用libbz.a和bzlib.h中的函数或参数，需要先构建
 #building static library
 include $(CLEAR_VARS)
@@ -39,7 +39,7 @@ LOCAL_SRC_FILES:= libbz.a
 LOCAL_EXPORT_C_INCLUDES := bzlib.h
 include $(PREBUILT_STATIC_LIBRARY)
 include $(CLEAR_VARS)
->
+#
 #构建so文件
 # build so lib
 #so文件名，构建完成会自动将libbspatch.so放在libs\armeabi文件夹之下

@@ -2,7 +2,7 @@
 Android app Smart Update use bspatch 4.3
 
 Android智能升级
-
+===========================================
 使用bsdiff4.3-win32文件夹中的bsdiff.exe生成差异包
 
 然后使用JniLib中的Utils类的patchApk方法 合并成新包安装
@@ -13,8 +13,7 @@ http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html
 
 
 Android.mk 文件说明:
-
-###
+	
 # Copyright (C) 2009 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,10 +37,7 @@ LOCAL_MODULE:= libbz
 LOCAL_SRC_FILES:= libbz.a
 LOCAL_EXPORT_C_INCLUDES := bzlib.h
 include $(PREBUILT_STATIC_LIBRARY)
-
 include $(CLEAR_VARS)
-
-###
 
 #构建so文件
 # build so lib

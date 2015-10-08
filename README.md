@@ -28,34 +28,31 @@ F:\JniLib\src>javah com.yxy.lib.smartupdate.Utils
 com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中#include "com_yxy_lib_smartupdate_Utils.h" 实现，
 也可以直接复制方法到bspatch.c中实现，本demo中复制该方法到bspatch.c完成实现
 
-JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
-        jobject obj, jstring old, jstring new , jstring patch){
-  
-  //构建4个长度的数组
-  int argc=4;
-  char * argv[argc];
-  argv[0]="fail.";
-  argv[1]=(*env)->GetStringUTFChars(env,old, 0);
-  argv[2]=(*env)->GetStringUTFChars(env,new, 0);
-  argv[3]=(*env)->GetStringUTFChars(env,patch, 0);
-
-	__android_log_print(ANDROID_LOG_INFO, "JNIMsg", "oldFilePath = %s",
-			argv[1]);
-	__android_log_print(ANDROID_LOG_INFO, "JNIMsg", "newFilePath = %s",
-			argv[2]);
-	__android_log_print(ANDROID_LOG_INFO, "JNIMsg", "patchFilePath = %s",
-			argv[3]);
-
-  int ret=applypatch(argc, argv);
-
-   (*env)->ReleaseStringUTFChars(env,old,argv[1]);
-   (*env)->ReleaseStringUTFChars(env,new,argv[2]);
-   (*env)->ReleaseStringUTFChars(env,patch,argv[3]);
-   return ret;
-}
+	JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
+	        jobject obj, jstring old, jstring new , jstring patch){
+	  
+	  //构建4个长度的数组
+	  int argc=4;
+	  char * argv[argc];
+	  argv[0]="fail.";
+	  argv[1]=(*env)->GetStringUTFChars(env,old, 0);
+	  argv[2]=(*env)->GetStringUTFChars(env,new, 0);
+	  argv[3]=(*env)->GetStringUTFChars(env,patch, 0);
+	
+	  __android_log_print(ANDROID_LOG_INFO, "JNIMsg", "oldFilePath = %s",argv[1]);
+	  __android_log_print(ANDROID_LOG_INFO, "JNIMsg", "newFilePath = %s",argv[2]);
+	  __android_log_print(ANDROID_LOG_INFO, "JNIMsg", "patchFilePath = %s",argv[3]);
+	
+	  int ret=applypatch(argc, argv);
+	
+	   (*env)->ReleaseStringUTFChars(env,old,argv[1]);
+	   (*env)->ReleaseStringUTFChars(env,new,argv[2]);
+	   (*env)->ReleaseStringUTFChars(env,patch,argv[3]);
+	   return ret;
+	}
 
 
-如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
+	如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
 
 
 

@@ -12,21 +12,21 @@ JNI接口文档 ：
 http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html
 
 
-JNI编译参见 Android.mk 文件
+JNI编译参数参见 Android.mk 文件
 ===========================================
 
-patchApk方法说明
+编译patchApk方法说明
 ===========================================
-bsspatch.c中有一个Utils.java中的native方法patchApk方法实现
-java类生成.h文件的方法如下:
+使用java编译java文件生成.h文件的方法如下:
 
-F:\JniLib\src\com\yxy\lib\smartupdate>javac Utils.java  //使用该命令需要在Utils.java所在的包之下，
-//命令行显示为F:\JniLib\src\com\yxy\lib\smartupdate>
+//使用该命令需要在Utils.java所在的包之下，命令行显示为F:\JniLib\src\com\yxy\lib\smartupdate>
+F:\JniLib\src\com\yxy\lib\smartupdate>javac Utils.java  
 
-F:\JniLib\src>javah com.yxy.lib.smartupdate.Utils //生成com_yxy_lib_smartupdate_Utils.h文件，需要在src文件目录（命令行显示为F:\JniLib\src>）下调用该命令
+ //生成com_yxy_lib_smartupdate_Utils.h文件，需要在src文件目录（命令行显示为F:\JniLib\src>）下调用该命令
+F:\JniLib\src>javah com.yxy.lib.smartupdate.Utils
 
 com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中#include "com_yxy_lib_smartupdate_Utils.h" 实现，
-也可以直接复制方法到bspatch.c中实现
+也可以直接复制方法到bspatch.c中实现，本demo中复制该方法到bspatch.c完成实现
 
 如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
 

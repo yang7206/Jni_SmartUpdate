@@ -56,8 +56,10 @@ android中的实现则需要使用JNI调用c文件来完成
 3.使用c++实现底层方法
 =========================================================
 在项目根目录下建立jni文件夹，放入bspatch.c相关的c文件实现，可以直接拷贝底部demo中的jni文件夹内的文件，替换掉方法即可
->生成后的.h文件中native方法名称格式为java_包名_类名_方法名
-com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中使用#include "com_yxy_lib_smartupdate_Utils.h"实现， >也可以直接复制方法到bspatch.c中实现，本demo中复制该方法到bspatch.c完成实现：
+
+生成后的.h文件中native方法名称格式为java_包名_类名_方法名
+
+com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中使用#include "com_yxy_lib_smartupdate_Utils.h"实现， 也可以直接复制方法到bspatch.c中实现，本demo中复制该方法到bspatch.c完成实现：
 ```
 	JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
 	        jobject obj, jstring old, jstring new , jstring patch){

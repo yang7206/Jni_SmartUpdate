@@ -28,11 +28,10 @@ F:\JniLib\src>javah com.yxy.lib.smartupdate.Utils
 com_yxy_lib_smartupdate_Utils.h文件可以在bspatch.c文件中#include "com_yxy_lib_smartupdate_Utils.h" 实现，
 也可以直接复制方法到bspatch.c中实现，本demo中复制该方法到bspatch.c完成实现
 
-如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
-
 JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
         jobject obj, jstring old, jstring new , jstring patch){
-  构建4个长度的数组
+  
+  //构建4个长度的数组
   int argc=4;
   char * argv[argc];
   argv[0]="fail.";
@@ -55,6 +54,8 @@ JNIEXPORT jint JNICALL Java_com_yxy_lib_smartupdate_Utils_patchApk(JNIEnv *env,
    return ret;
 }
 
+
+如果构建的时候报JNIEXPORT找不到，则需要#include <jni.h>
 
 
 
